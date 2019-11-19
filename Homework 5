@@ -1,0 +1,105 @@
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // 4 подъезда по 9 этажей, на котором по 4 квартиры: 4 * 9 * 4 = 144
+        // Объявляем динамический массив для наполнения значениями (номеров квартир), наполняем его
+        ArrayList<Integer> house = new ArrayList<>(144);
+        for (int i = 1; i < 145; i++) {
+            house.add(i);
+        }
+
+        // Объявляем "подъезды". 9 этажей по 4 квартиры: 9 * 4 = 36
+        Integer[][] first = new Integer[9][4];
+        Integer[][] second = new Integer[9][4];
+        Integer[][] third = new Integer[9][4];
+        Integer[][] fourth = new Integer[9][4];
+
+        // Распределяем квартиры по многомерным массивам
+        int room = 0;
+        while (first[8][3] == null) {
+            for (int a = 0; a < 9; a++) {
+                for (int b = 0; b < 4; b++) {
+                    first[a][b] = house.get(room);
+                    room++;
+                }
+            }
+        }
+        while (second[8][3] == null) {
+            for (int a = 0; a < 9; a++) {
+                for (int b = 0; b < 4; b++) {
+                    second[a][b] = house.get(room);
+                    room++;
+                }
+            }
+        }
+        while (third[8][3] == null) {
+            for (int a = 0; a < 9; a++) {
+                for (int b = 0; b < 4; b++) {
+                    third[a][b] = house.get(room);
+                    room++;
+                }
+            }
+        }
+        while (fourth[8][3] == null) {
+            for (int a = 0; a < 9; a++) {
+                for (int b = 0; b < 4; b++) {
+                    fourth[a][b] = house.get(room);
+                    room++;
+                }
+            }
+        }
+
+        // Просим ввести пользователя число, что не выходит за нумерацию квартиры
+        System.out.println("Введите номер квартиры:");
+
+        try {
+            int number = sc.nextInt();
+            if (number > fourth[8][3] || number <= 0) {
+                System.out.println("Такой квартиры в этом доме нет!");
+            } else {
+                int frontdoor = 0;
+                int level = 0;
+                for (int a = 0; a < 9; a++) {
+                    for (int b = 0; b < 4; b++) {
+                        if (first[a][b] == number) {
+                            frontdoor = 1;
+                            level = ++a;
+                        }
+                    }
+                }
+                for (int a = 0; a < 9; a++) {
+                    for (int b = 0; b < 4; b++) {
+                        if (second[a][b] == number) {
+                            frontdoor = 2;
+                            level = ++a;
+                        }
+                    }
+                }
+                for (int a = 0; a < 9; a++) {
+                    for (int b = 0; b < 4; b++) {
+                        if (third[a][b] == number) {
+                            frontdoor = 3;
+                            level = ++a;
+                        }
+                    }
+                }
+                for (int a = 0; a < 9; a++) {
+                    for (int b = 0; b < 4; b++) {
+                        if (fourth[a][b] == number) {
+                            frontdoor = 4;
+                            level = ++a;
+                        }
+                    }
+                }
+                System.out.println("Указанная квартира находится в подъезде номер " + frontdoor + ", на " + level + " этаже");
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Введены некорректные данные!");
+        }
+    }
+}
