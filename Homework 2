@@ -1,0 +1,86 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        //Объявляем сканнер с именем sc
+        Scanner sc = new Scanner(System.in);
+
+        /*
+        Помещаем в блок try-catch часть кода, где возможен некорректный ввод, для отлова ошибки
+        Используем тип данных double для точного результата
+         */
+        try {
+            System.out.println("Для сложения введите первой число:");
+            double first = sc.nextDouble();
+            System.out.println("Для сложения введите второе число:");
+            double second = sc.nextDouble();
+            System.out.println("Результат сложения: " + (first + second));
+        } catch (InputMismatchException e){
+            System.out.println("Вводить необходимо числа!");
+        }
+
+        //Аналогичные условия для оператора вычитания
+        try {
+            System.out.println("Для вычитания введите первое число:");
+            double first = sc.nextDouble();
+            System.out.println("Для вычитания введите второе число:");
+            double second = sc.nextDouble();
+            System.out.println("Результат вычитания: " + (first - second));
+        } catch (InputMismatchException e) {
+            System.out.println("Вводить необходимо числа!");
+        }
+
+        //Аналогичные условия для оператора умножения
+        try {
+            System.out.println("Для умножения введите первое число:");
+            double first = sc.nextDouble();
+            System.out.println("Для умножения введите второе число:");
+            double second = sc.nextDouble();
+            System.out.println("Результат умножения: " + (first * second));
+        } catch (InputMismatchException e) {
+            System.out.println("Вводить необходимо числа!");
+        }
+
+        //Немного другие условия для оператора деления
+        try {
+            System.out.println("Для деления введите первое число:");
+            double first = sc.nextDouble();
+            System.out.println("Для деления введите второе число:");
+            double second = sc.nextDouble();
+            if (second == 0)
+                throw new ArithmeticException();
+            System.out.println("Результат деления: " + (first / second));
+        } catch (InputMismatchException e) {
+            System.out.println("Вводить необходимо числа!");
+        } catch (ArithmeticException e) {
+            System.out.println("Деление на ноль!");
+        }
+
+        try {
+            System.out.println("Для деления по модулю введите первое число:");
+            double first = sc.nextDouble();
+            System.out.println("Для деления по модулю введите второе число:");
+            double second = sc.nextDouble();
+            System.out.println("Остаток от деления составил: " + (first % second));
+        } catch (InputMismatchException e) {
+            System.out.println("Вводить необходимо числа!");
+        }
+
+        try {
+            System.out.println("Введите число для его инкремента:");
+            double increment = sc.nextDouble();
+            System.out.println("Результат: " + ++increment);
+        } catch (InputMismatchException e) {
+            System.out.println("Вводить необходимо числа!");
+        }
+
+        try {
+            System.out.println("Введите число для его декремента:");
+            double decrement = sc.nextDouble();
+            System.out.println("Результат: " + --decrement);
+        } catch (InputMismatchException e) {
+            System.out.println("Вводить необходимо числа!");
+        }
+    }
+}
