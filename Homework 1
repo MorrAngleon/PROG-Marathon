@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        //Объявляем сканер с именем sc
+        Scanner sc = new Scanner(System.in);
+
+        /*
+        Присваиваем переменным s1, s2, s3 три строки, необходимые для конкатенации,
+        запрашивая пользователя ввести каждую поочередно
+        */
+        System.out.println("Введите первую строку:");
+        String s1 = sc.nextLine();
+        System.out.println("Введите вторую строку:");
+        String s2 = sc.nextLine();
+        System.out.println("Введите третью строку:");
+        String s3 = sc.nextLine();
+
+        /*
+        Выводим в консоль поочередно все пункты задания.
+        Для более удобного прочтения используем пробел (" ") в качестве разделителя строк
+        */
+        System.out.println(s1 + " " +s3);
+        System.out.println(s3 + " " + s2 + " " + s1);
+        System.out.println(s1 + " " + s2 + " " + s3);
+    }
+}
