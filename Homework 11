@@ -1,0 +1,35 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = 0;
+        int b = 0;
+
+
+        try {
+            System.out.println("Укажите высоту:");
+            a = sc.nextInt();
+
+            System.out.println("Укажите ширину:");
+            b = sc.nextInt();
+
+        }catch (InputMismatchException e){
+            System.out.println("Введена строка!");
+        }
+
+        for (int i = 0; i < a; i++){
+            for (int j = 0; j < b - 1; j++){
+                if (i == 0 || i == a - 1){
+                    System.out.print("#");
+                }else if (j == 0 || j == b - 1){
+                    System.out.print("#");
+                }else{
+                    System.out.print(" ");
+                }
+            }
+            System.out.println("#");
+        }
+    }
+}
