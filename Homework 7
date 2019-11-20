@@ -1,0 +1,27 @@
+public class Main {
+    public static void main(String[] args) {
+
+        // while
+        int first = 1;
+        while (first <= 50 ){
+            System.out.print(first + " ");
+            first++;
+        }
+
+        System.out.println();
+
+        // do while
+        int second = 1;
+        do {
+            System.out.print(second + " ");
+            second++;
+        }while (second <= 50);
+
+        System.out.println();
+
+        // for
+        for (int i = 1; i <= 50; i++){
+            System.out.print(i + " ");
+        }
+    }
+}
